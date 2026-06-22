@@ -1676,3 +1676,59 @@ body.text-sm  { font-size: 14px; }
   .faq-q { font-size: 15px; padding: 16px 18px; }
   .faq-a { padding: 0 18px 16px; }
 }
+
+/* ============================================================
+   Enhanced Mobile Responsiveness — iPhone & Galaxy 2020+
+   ============================================================ */
+
+/* ≤480px: iPhone SE 2020+, Galaxy S/A series (min 360px logical px) */
+@media (max-width: 480px) {
+  .section { padding: 48px 0; }
+  .section-header { margin-bottom: 32px; }
+
+  /* Hero */
+  .hero-images { height: 200px; }
+  .hero-btns .btn { width: 100%; justify-content: center; }
+
+  /* About */
+  .about-img-badge { padding: 8px 12px; }
+  .about-img-badge strong { font-size: 32px; }
+  .about-img-badge span { font-size: 13px; }
+  .feature-card { padding: 18px 14px; gap: 14px; }
+  .feature-card h3 { font-size: 17px; }
+  .feature-card p { font-size: 14px; }
+
+  /* Services */
+  .service-card { padding: 24px 16px; }
+
+  /* Products — single column so cards aren't cramped at 150px wide */
+  .product-tabs { flex-wrap: wrap; }
+  .tab-btn { padding: 10px 24px; font-size: 15px; }
+  .product-grid { grid-template-columns: 1fr; }
+
+  /* Contact */
+  .contact-form-wrap { padding: 20px 16px; }
+  .map-wrap iframe { height: 240px; }
+}
+
+/* ≤360px: Samsung Galaxy S20/S21/A32 at base logical width */
+@media (max-width: 360px) {
+  .hero-content h1 { font-size: 26px; }
+  .section-header h2 { font-size: 22px; }
+  .tab-btn { padding: 9px 18px; font-size: 14px; }
+}
+
+/* iOS home-indicator safe area (iPhone X / iPhone 12 and newer) */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .whatsapp-float { bottom: calc(28px + env(safe-area-inset-bottom)); }
+  .back-to-top    { bottom: calc(28px + env(safe-area-inset-bottom)); }
+  .a11y-widget    { bottom: calc(90px + env(safe-area-inset-bottom)); }
+  .cookie-banner  { padding-bottom: calc(18px + env(safe-area-inset-bottom)); }
+}
+
+@media (max-width: 480px) {
+  @supports (padding: env(safe-area-inset-bottom)) {
+    .back-to-top { bottom: calc(16px + env(safe-area-inset-bottom)); }
+    .a11y-widget { bottom: calc(80px + env(safe-area-inset-bottom)); }
+  }
+}
