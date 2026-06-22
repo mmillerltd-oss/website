@@ -63,8 +63,8 @@ function activateTab(btn) {
   btn.classList.add('active');
   btn.setAttribute('aria-selected', 'true');
   btn.setAttribute('tabindex', '0');
-  document.getElementById('tab-cemah').style.display = tab === 'cemah' ? 'grid' : 'none';
-  document.getElementById('tab-tools').style.display = tab === 'tools' ? 'grid' : 'none';
+  document.getElementById('tab-cemah').style.display = tab === 'cemah' ? '' : 'none';
+  document.getElementById('tab-tools').style.display = tab === 'tools' ? '' : 'none';
 }
 
 // ===== Counter Animation =====

@@ -1732,3 +1732,50 @@ body.text-sm  { font-size: 14px; }
     .a11y-widget { bottom: calc(80px + env(safe-area-inset-bottom)); }
   }
 }
+
+/* ============================================================
+   Fix: Prevent horizontal overflow / page-width shifting
+   ============================================================ */
+html {
+  overflow-x: hidden;
+}
+
+/* Disable hover transforms on touch screens — they cause layout shifts */
+@media (hover: none) {
+  .feature-card:hover { transform: none; }
+  .service-card:hover { transform: none; }
+  .product-card:hover { transform: none; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .client-card:hover  { transform: none; }
+  .btn:hover          { transform: none !important; box-shadow: none; }
+  .tab-btn:hover      { transform: none; box-shadow: none; }
+  .back-to-top:hover  { transform: none; }
+  .whatsapp-float:hover { transform: none; }
+}
+
+/* Fix hero 100vh on mobile — svh excludes browser chrome (address bar) */
+@supports (height: 100svh) {
+  .hero { min-height: 100svh; }
+}
+
+/* ============================================================
+   Product Carousel — swipeable horizontal scroll on mobile
+   ============================================================ */
+@media (max-width: 768px) {
+  .product-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 16px;
+    padding: 4px 0 24px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .product-grid::-webkit-scrollbar { display: none; }
+  .product-card {
+    flex: 0 0 78%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+}
